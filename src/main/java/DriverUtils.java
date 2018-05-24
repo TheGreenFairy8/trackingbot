@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverUtils {
     public static WebDriver initDriver() {
         DesiredCapabilities dc = DesiredCapabilities.chrome();
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver(dc);
         driver.manage().window().setSize(new Dimension(1280,1024));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

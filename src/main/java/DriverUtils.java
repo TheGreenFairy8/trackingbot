@@ -13,7 +13,7 @@ public class DriverUtils {
         DesiredCapabilities dc = DesiredCapabilities.chrome();
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver(dc);
-        driver.manage().window().setSize(new Dimension(1280,1024));
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }

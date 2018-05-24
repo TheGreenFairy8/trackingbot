@@ -17,15 +17,15 @@ public class MainPage extends Page
     public MainPage(WebDriver driver)
     {
         super(driver);
-        closePopup();
+        if(driver.findElement(popup).isDisplayed()) {
+            closePopup();
+        }
         updateTable();
         closeDefaultSettings();
     }
 
     void closePopup()
     {
-        wairForElementToShow(popup);
-
         WebElement element = driver.findElement(closePopupButton);
         element.click();
     }

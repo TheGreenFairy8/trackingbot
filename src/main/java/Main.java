@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class Main
 {
@@ -10,9 +11,7 @@ public class Main
 
     public static void main( String[] args )
     {
-        DesiredCapabilities dc = DesiredCapabilities.chrome();
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver(dc);
+        WebDriver driver = DriverUtils.initDriver();
 
         AuthPage authPage = new AuthPage(driver);
         authPage.logIn();
@@ -22,7 +21,11 @@ public class Main
 
         driver.quit();
 
+
         TrackingReminderBot bot = new TrackingReminderBot();
         bot.sendImage(chatId, screenShot);
+        screenShot.delete();
     }
+
+
 }

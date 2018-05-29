@@ -17,7 +17,8 @@ public class TrackingReminderBot extends TelegramLongPollingBot
                     "Tracking time!",
                     "'главное не работа, а затреканное время!'©",
                     "'Трекаемся'©",
-                    "Ребята, давайте дружно трекаться!"
+                    "Ребята, давайте дружно трекаться!",
+                    "'гой еси, трекайтеси, люди добрыя и не добрыя, и стар, и млад! ибо таков вечор позден и ярило яко низко к полям и лесам укатилося, что угодно боярам учет времени холопьему знати'©"
             };
 
     public String getBotUsername()
@@ -54,6 +55,20 @@ public class TrackingReminderBot extends TelegramLongPollingBot
         try
         {
             sendMessage(sendMessage);
+        } catch (TelegramApiException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendText(String chatId)
+    {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText(remindMessages[(int) (Math.random() * (remindMessages.length + 1))]);
+        try
+        {
+            sendMessage(message);
         } catch (TelegramApiException e)
         {
             e.printStackTrace();

@@ -1,4 +1,5 @@
 import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -18,21 +19,16 @@ public class MainPage extends Page
     {
         super(driver);
         if(driver.findElement(popup).isDisplayed()) {
-            closePopup();
+            closePopup(driver.findElement(closePopupButton));
         }
         updateTable();
-        closeDefaultSettings();
+        closePopup(driver.findElement(closeDefaultButton));
     }
 
-    void closePopup()
+    void closePopup(WebElement closeButton)
     {
-        WebElement element = driver.findElement(closePopupButton);
-        element.click();
-    }
-
-    void closeDefaultSettings()
-    {
-        driver.findElement(closeDefaultButton).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", closeButton);
     }
 
     void updateTable()

@@ -23,8 +23,8 @@ public class Main
 
 
         TrackingReminderBot bot = new TrackingReminderBot();
-       // bot.sendImage(chatId, screenShot);
-        bot.sendText(chatId);
+        bot.sendImage(chatId, screenShot);
+       // bot.sendText(chatId);
         screenShot.delete();
     }
 

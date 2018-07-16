@@ -16,8 +16,8 @@ public class AuthPage extends  Page
 
     public void logIn()
     {
-        driver.findElement(loginElement).sendKeys("YKosheleva");
-        driver.findElement(passwordElement).sendKeys("89511912160");
+        driver.findElement(loginElement).sendKeys("Muhametdinov");
+        driver.findElement(passwordElement).sendKeys("mIaczVi1lB");
         driver.findElement(submitButton).submit();
     }
 }
